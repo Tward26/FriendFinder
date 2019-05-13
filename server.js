@@ -9,17 +9,11 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//HTML routing
-require("./app/routing/htmlRoutes")(app);
-
 //API routing
 require("./app/routing/apiRoutes")(app);
 
-//HTML catch-all route
-app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "./app/public/home.html"));
-});
-
+//HTML routing
+require("./app/routing/htmlRoutes")(app);
 
 //Start server by listening on port
 app.listen(PORT, function () {
