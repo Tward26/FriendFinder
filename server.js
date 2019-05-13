@@ -1,6 +1,4 @@
 const express = require('express');
-const path = require('path');
-const friends = require('./app/data/friends')
 
 // Sets up the Express App
 // =============================================================
@@ -11,33 +9,16 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 //HTML routing
-app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "./app/public/home.html"));
-});
-
-app.get("/survey", function (req, res) {
-    res.sendFile(path.join(__dirname, "./app/public/survey.html"));
-});
+require("./app/routing/htmlRoutes")(app);
 
 //API routing
-app.get("/api/friends", function (req, res) {
-    return res.json(friends);
-});
-
-app.post("/api/friends", function (req, res) {
-    const newFriend = req.body;
-    friends.push(newFriend);
-    res.send(true)
-});
-
+require("./app/routing/apiRoutes")(app);
 
 //HTML catch-all route
 app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "./app/public/home.html"));
 });
-
 
 
 //Start server by listening on port
