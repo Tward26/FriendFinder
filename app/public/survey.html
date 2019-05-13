@@ -247,7 +247,19 @@
             // Question: What does this code do??
             $.post("/api/friends", newFriend)
                 .then(function (data) {
-                    console.log(data);
+                    $.get("/api/friends", function(friendJSON){
+                        let diffArray = [];
+                        for(let i = 0; (i<friendJSON.length - 1); i++){
+                            let diff = 0;
+                            for(let j=0; j<friendJSON[i].scores.length; j++){
+                                diff +=Math.abs(friendJSON[i].scores[j] - newFriend.scores[j]);
+                            }
+                            diffArray.push(diff);
+                        };
+                        let friendMatch = diffArray.indexOf(Math.min(...diffArray));
+                        console.log(friendJSON[friendMatch].name);
+                        console.log(friendJSON[friendMatch].photo);
+                    });
                 });
 
         });
