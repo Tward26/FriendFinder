@@ -9,6 +9,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//serves css and images inisde public folder
+app.use(express.static('./app/public'))
+
 //API routing
 require("./app/routing/apiRoutes")(app);
 

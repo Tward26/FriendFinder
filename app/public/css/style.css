@@ -1,11 +1,11 @@
 body {
-   background-image: url("../data/hollowknight.jpg");
+   background-image: url("../images/hollowknight.jpg");
    background-size: cover;
    background-repeat: none;
    color: ivory;
 }
 
-a{
+a, a:hover{
     color: ivory;
 }
 

@@ -1,0 +1,23 @@
+body {
+    background-image: url("../images/dishonored.jpg");
+    background-size: cover;
+    background-repeat: none;
+    background-attachment: fixed;
+    color: ivory;
+ }
+ 
+ a, a:hover{
+     color: ivory;
+ }
+ 
+ .container{
+     background-color: rgba(76,39,30,70%);
+ }
+
+ /* .form-control{
+     width: 300px;
+ } */
+
+ .modal{
+    color: black;
+}
