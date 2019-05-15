@@ -1,7 +1,5 @@
-instructions/
-*
+instructions/*
 instructions
-
 node_modules
 
 npm-debug.log
